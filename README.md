@@ -6,3 +6,4 @@
   - tiffzhang.com/startup
   - www.blindtextgenerator.com
 
+- pick back up with : https://www.youtube.com/watch?v=5GcQtLDGXy8 
