@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap Table</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link href="css/bootstrap.min.css" rel="stylesheet" >
+    <link href="css/bootstrap-table.min.css" rel="stylesheet" >
+    <link href="css/bootstrap-sortable.css" rel="stylesheet" >
+
+    <style>
+    .tableFixHead {
+      overflow-y: auto;
+      height: 200px;
+    }
+    .tableFixHead table {
+      border-collapse: collapse;
+      width:100%;
+    }
+    .tableFixHead th,
+    .tableFixHead td {
+      padding: 8px 16px;
+    }
+    .tableFixHead th {
+      position: sticky;
+      top: 0;
+      background: #eee;
+    }
+    </style>
+    <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="js/moment.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap-table.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap-sortable.js"></script>
+
+  </head>
+
+  <body>
+    <h2>Hello World</h2>
+    <title>Hello, Bootstrap Table!</title>
+</head>
+<body>
+  <div class="tableFixHead" style="overflow:auto; height:200px; width:85%; margin:30px;">
+  <table class="table table-striped table-bordered sortable" onclick="myTable()">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>File</th>
+      <th>Start Time</th>
+      <th>Requests</th>
+      <th>Responses</th>
+      <th>Total</th>
+      <th>End Time</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>sensor.pcap</td>
+      <td>2019-02-04 17:34:51 UTC</td>
+      <td>120</td>
+      <td>3200</td>
+      <td>63108</td>
+      <td>2019-02-04 17:37:23 UTC</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>current.pcap</td>
+      <td>2019-02-04 17:37:24 UTC</td>
+      <td>125</td>
+      <td>200</td>
+      <td>3108</td>
+      <td>2019-02-04 17:37:59 UTC</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>temp.pcapng</td>
+      <td>2019-02-04 17:38:01 UTC</td>
+      <td>10000</td>
+      <td>15000</td>
+      <td>45666</td>
+      <td>2019-02-04 17:41:03 UTC</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>netdiagram.png</td>
+      <td>na</td>
+      <td>na</td>
+      <td>na</td>
+      <td>na</td>
+      <td>na</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>network.pcapng</td>
+      <td>2019-02-04 17:41:04 UTC</td>
+      <td>2</td>
+      <td>37</td>
+      <td>7732</td>
+      <td>2019-02-04 17:41:13 UTC</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>interior.pcap</td>
+      <td>2019-02-04 17:36:56 UTC</td>
+      <td>4321</td>
+      <td>87895</td>
+      <td>129761</td>
+      <td>2019-02-04 17:37:22 UTC</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<script>
+function myTable() {
+//  alert("the table has been clicked in - determine which row ");
+}
+</script>
+
+</body>
+</html>
