@@ -33,17 +33,24 @@
     </style>
     <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
     <script type="text/javascript" src="js/moment.min.js"></script>
+    <script type="text/javascript" src="js/Chart.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/bootstrap-table.min.js"></script>
     <script type="text/javascript" src="js/bootstrap-sortable.js"></script>
 
-  </head>
-
-  <body>
-    <h2>Hello World</h2>
-    <title>Hello, Bootstrap Table!</title>
 </head>
-<body>
+
+<body class="bg-warning py-5">
+  <div class="col-md-6 offset-md-3">
+    <div class="card">
+      <div class="card-body">
+        <h1>Dynamic Chart JS <button class="btn btn-success" onclick="updateChart()">Update</button></h1>
+      </div> <!--  class="card-body" -->
+      <div class="card-body">
+        <canvas id="myChart"></canvas>
+      </div> <!--  class="card-body" -->
+    </div> <!-- class="card" -->
+
   <div class="tableFixHead" style="overflow:auto; height:200px; width:85%; margin:30px;">
   <table id="filelist" class="table table-striped table-bordered sortable">
   <thead>
@@ -53,8 +60,8 @@
       <th>Start Time</th>
       <th>Requests</th>
       <th>Responses</th>
+      <th>Errors</th>
       <th>Total</th>
-      <th>End Time</th>
     </tr>
   </thead>
   <tbody>
@@ -64,8 +71,8 @@
       <td>2019-02-04 17:34:51 UTC</td>
       <td>120</td>
       <td>3200</td>
+      <td>11</td>
       <td>63108</td>
-      <td>2019-02-04 17:37:23 UTC</td>
     </tr>
     <tr class="hasvalues">
       <td>2</td>
@@ -73,8 +80,8 @@
       <td>2019-02-04 17:37:24 UTC</td>
       <td>125</td>
       <td>200</td>
+      <td>2</td>
       <td>3108</td>
-      <td>2019-02-04 17:37:59 UTC</td>
     </tr>
     <tr class="hasvalues">
       <td>3</td>
@@ -82,8 +89,8 @@
       <td>2019-02-04 17:38:01 UTC</td>
       <td>10000</td>
       <td>15000</td>
+      <td>3333</td>
       <td>45666</td>
-      <td>2019-02-04 17:41:03 UTC</td>
     </tr>
     <tr class="hasvalues">
       <td>4</td>
@@ -100,8 +107,8 @@
       <td>2019-02-04 17:41:04 UTC</td>
       <td>2</td>
       <td>37</td>
+      <td>5</td>
       <td>7732</td>
-      <td>2019-02-04 17:41:13 UTC</td>
     </tr>
     <tr class="hasvalues">
       <td>6</td>
@@ -109,24 +116,65 @@
       <td>2019-02-04 17:36:56 UTC</td>
       <td>4321</td>
       <td>87895</td>
+      <td>6666</td>
       <td>129761</td>
-      <td>2019-02-04 17:37:22 UTC</td>
     </tr>
   </tbody>
 </table>
 </div>
+</div> <!-- class="col-md-6 offset-md-3" -->
 
 <script>
-
+const NAME = 1;
+const REQUESTS = 3;
+const RESPONSES = 4;
+const ERRORS = 5;
 // tr gets the whole row, td gets cell values
 // var elements= document.getElementsByTagName('tr');
 var elements= document.getElementsByClassName('hasvalues');
 for(var i=0; i<elements.length;i++)
 {
 (elements)[i].addEventListener("click", function(){
-   alert(this.innerHTML);
+  //   alert(this.innerHTML);
+  var name = this.cells[NAME].innerHTML;
+  var requests = this.cells[REQUESTS].innerHTML;
+  var responses = this.cells[RESPONSES].innerHTML;
+  var errors = this.cells[ERRORS].innerHTML;
+//  alert( name + " reqs: " + requests + " resps: " + responses + " errs: " + errors );
+//  var chartData = [name, requests, responses, errors];
+  var chartData = [requests, responses, errors];
+  updateChart2(chartData);
 });
 }
+
+function showChartData(chartData) {
+  alert(chartData);
+}
+
+function updateChart() {
+  alert("Update Chart");
+  chart.data.datasets[0].data = [66, 22, 999];
+  chart.update();
+}
+function updateChart2(newData) {
+  chart.data.datasets[0].data = newData;
+  chart.update();
+}
+
+var ctx = document.getElementById('myChart').getContext('2d');
+var chart = new Chart( ctx, {
+  type: 'pie',
+  data: {
+    labels: ["Requests", "Responses", "Errors"],
+    datasets: [{
+      label: "My 1st Dataset",
+      backgroundColor: ['blue', 'green', 'red'],
+      borderColor: 'black',
+      data: [111,222,666],
+    }]
+  },
+  options: {}
+});
 
 </script>
 
