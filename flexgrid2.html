@@ -12,7 +12,7 @@
     <link href="css/bootstrap-table.min.css" rel="stylesheet" >
     <link href="css/bootstrap-sortable.css" rel="stylesheet" >
     <style>
-      body {
+      html, body {
         margin: 3px;
         height: 100%;
         width: 100%;
@@ -77,13 +77,16 @@
 
   <body>
     <div class="container my-container">
+      <!-- navigation row -->
       <div class="row my-row my-navbar">
         <div class="col-md-12 my-col" >navigation bar</div>
       </div>
-      <div class="row my-row my-toprow d-flex">
-        <div class="col-md-4 my-col align-items-stretch">
+
+      <!-- top row 2 columns left stats area right chart area -->
+      <div class="row my-row my-toprow">
+        <div class="col-md-4 my-col">
           <div class="accordion" id="accordion">
-            <div class="card my-dirstats-card flex-fill">
+            <div class="card my-dirstats-card">
               <div class="card-header" id="header1" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="#collapseOne">Directory Stats</div>
               <div class="card-body collapse" id="collapseOne" aria-labelledby="header1" data-parent="#accordion">
                 <p class="scrollable" id="dirstats">Be sure to add aria-expanded to the control element. This attribute explicitly conveys the
@@ -97,7 +100,7 @@
               </div>
             </div> <!-- dirstats -->
             <div style="padding:1px;"></div>
-            <div class="card my-filestats-card flex-fill">
+            <div class="card my-filestats-card">
               <div class="card-header" id="header2" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="#collapseTwo">File Stats</div>
               <div class="card-body collapse show" id="collapseTwo" aria-labelledby="header2" data-parent="#accordion">
                 <p class="scrollable" id="filestats">Be sure to add aria-expanded to the control element. This attribute explicitly conveys the
@@ -119,13 +122,14 @@
             <div class="card">
               <div class="card-header">Chart Data - Protocol Stats</div>
               <div class="card-text my-chart-card">
-                <canvas id="myChart"></canvas>
+                <canvas id="myChart" style="width: 98%; height: 98%;"></canvas>
               </div>
             </div> <!-- class="card" -->
           </div>
         </div>
       </div>
 
+      <!-- bottom row 1 12 columns overall filelist -->
       <div class="row my-row my-bottomrow">
         <div class="col-md-12 my-col">File List Table Area
           <div class="container">
